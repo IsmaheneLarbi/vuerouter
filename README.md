@@ -1,6 +1,7 @@
 # vuerouter
 
-> first time using a router
+> Introduction to routers
+> Scaling Vue.js with data stores
 
 ## Build Setup
 
