@@ -1,20 +1,31 @@
 <template>
     <div>
         <h1>Network</h1>
-        user.id = {{id}}
-        user.age = {{age}}
-        user.weight = {{weight}}
+        <h2>Pixis' Team</h2>
+        <li  v-for="person in NetworkStore.network">{{person}}</li>
+        <input v-model="newPerson" v-on:keyup.13="addPerson(newPerson)"/>
     </div>
 </template>
 
-
 <script>
+
+import NetworkStore from "../stores/NetworkStore"
+
 export default {
-    props:[
-        "id",
-        "age",
-        "weight",
-    ] 
+    data()
+    {
+        return {
+            newPerson : null,
+            NetworkStore : NetworkStore.data,
+        };
+    },
+    methods:{
+        addPerson(name)
+        {
+            NetworkStore.methods.addPerson(name);
+            this.newPerson = null;
+        }
+    }
 }
 </script>
 
